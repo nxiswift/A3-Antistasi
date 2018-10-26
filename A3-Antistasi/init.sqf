@@ -1,5 +1,10 @@
 //Arma 3 - Antistasi - Warlords of the Pacific by Barbolani
 //Do whatever you want with this code, but credit me for the thousand hours spent making this.
+
+tf_radio_channel_name = "Antistasi"; //RW settings
+tf_radio_channel_password = "2018";  //RW settings
+enableSentences false;    //RW settings
+
 enableSaving [false,false];
 mapa setObjectTexture [0,"pic.jpg"];
 if (isServer and (isNil "serverInitDone")) then {skipTime random 24};
