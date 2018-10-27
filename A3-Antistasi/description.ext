@@ -1,4 +1,3 @@
-#include "addons\outlw_magrepack\config.hpp"
 #include "defines.hpp"
 #include "dialogs.hpp"
 
@@ -423,3 +422,4 @@ class CfgDebriefing
     };
     */
 };
+#include "addons\outlw_magrepack\config.hpp"
