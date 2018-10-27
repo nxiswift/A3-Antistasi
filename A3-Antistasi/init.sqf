@@ -1,5 +1,44 @@
 //Arma 3 - Antistasi - Warlords of the Pacific by Barbolani
 //Do whatever you want with this code, but credit me for the thousand hours spent making this.
+
+tf_radio_channel_name = "Antistasi"; //RW settings
+tf_radio_channel_password = "2018";  //RW settings
+enableSentences false;    //RW settings
+
+[] execVM "addons\welcome.sqf";    //logo
+_pic = "addons\rw.paa";
+[
+    '<img align=''left'' size=''1.0'' shadow=''1'' image='+(str(_pic))+' />',
+    safeZoneX-0.01,
+    safeZoneY+safeZoneH-0.09,
+    99999,
+    0,
+    0,
+    3090
+] spawn bis_fnc_dynamicText;
+
+addMissionEventHandler ["Draw3D",
+{
+
+    _3d_distance    = 100;
+    _3d_icon_size   = 0.5;
+    _3d_icon_color  = [1,0,0,1];
+    _text  = "";
+    _allPlayers = [];
+    {
+        _pos = ASLToAGL getPosASL _x;
+        if (((_x distance player) < _3d_distance) && _x getVariable "INCAPACITATED") then
+        {
+            drawIcon3D["\a3\ui_f\data\IGUI\Cfg\Actions\bandage_ca.paa",_3d_icon_color,[_pos # 0,_pos # 1,(_pos # 2) + 1],_3d_icon_size,_3d_icon_size,0,format[_text],1,0.04];
+        };
+        
+    } forEach playableUnits;
+}];
+
+[] execVM "addons\zlt_pushboat.sqf";   //толкание лодок
+[] execVM "addons\outlw_magRepack\MagRepack_init.sqf";    // перепаковка
+[] execVM "addons\zlt_staticwpn.sqf";   //таскать статику
+
 enableSaving [false,false];
 mapa setObjectTexture [0,"pic.jpg"];
 if (isServer and (isNil "serverInitDone")) then {skipTime random 24};

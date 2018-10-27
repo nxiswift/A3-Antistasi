@@ -1,5 +1,6 @@
 #include "defines.hpp"
 #include "dialogs.hpp"
+#include "addons\outlw_magrepack\config.hpp"
 
 author="Barbolani";
 OnLoadName = "Antistasi Altis";
