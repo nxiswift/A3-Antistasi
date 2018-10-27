@@ -20,6 +20,11 @@ _pic = "addons\rw.paa";
 call compile preprocessFileLineNumbers "addons\damagesystem\pp.sqf";  //heall marker
 call compile preprocessFileLineNumbers "addons\unflip_vehicle.sqf";   //unflip tehs
 
+[] execVM "addons\zlt_pushboat.sqf";   //толкание лодок
+[] execVM "addons\outlw_magRepack\MagRepack_init.sqf";    // перепаковка
+[] execVM "addons\zlt_vehiclecrew.sqf";   //кто сидит в машине
+[] execVM "addons\zlt_staticwpn.sqf";   //таскать статику
+
 enableSaving [false,false];
 mapa setObjectTexture [0,"pic.jpg"];
 if (isServer and (isNil "serverInitDone")) then {skipTime random 24};
