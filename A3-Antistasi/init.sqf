@@ -17,6 +17,8 @@ _pic = "addons\rw.paa";
     3090
 ] spawn bis_fnc_dynamicText;
 
+call compile preprocessFileLineNumbers "addons\damagesystem\pp.sqf";  //heall marker
+
 enableSaving [false,false];
 mapa setObjectTexture [0,"pic.jpg"];
 if (isServer and (isNil "serverInitDone")) then {skipTime random 24};
