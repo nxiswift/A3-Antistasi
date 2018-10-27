@@ -5,6 +5,18 @@ tf_radio_channel_name = "Antistasi"; //RW settings
 tf_radio_channel_password = "2018";  //RW settings
 enableSentences false;    //RW settings
 
+[] execVM "addons\welcome.sqf";    //logo
+_pic = "addons\rw.paa";
+[
+    '<img align=''left'' size=''1.0'' shadow=''1'' image='+(str(_pic))+' />',
+    safeZoneX-0.01,
+    safeZoneY+safeZoneH-0.09,
+    99999,
+    0,
+    0,
+    3090
+] spawn bis_fnc_dynamicText;
+
 enableSaving [false,false];
 mapa setObjectTexture [0,"pic.jpg"];
 if (isServer and (isNil "serverInitDone")) then {skipTime random 24};
