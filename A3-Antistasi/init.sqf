@@ -18,6 +18,7 @@ _pic = "addons\rw.paa";
 ] spawn bis_fnc_dynamicText;
 
 call compile preprocessFileLineNumbers "addons\damagesystem\pp.sqf";  //heall marker
+call compile preprocessFileLineNumbers "addons\unflip_vehicle.sqf";   //unflip tehs
 
 enableSaving [false,false];
 mapa setObjectTexture [0,"pic.jpg"];
