@@ -119,17 +119,17 @@ this addAction [localize "str_act_moveAsset", "moveObject.sqf",nil,0,false,true,
 		_y = _dir;_p = 0; _r = 0;
 		switch _nr do
 		{
-			case 1: {;_p = 90;};
-			case 2: {;_p = 80;};
-			case 3: {;_p = 70;};
-			case 4: {;_p = 60;};
-			case 5: {;_p = 50;};
-			case 6: {;_p = 45;};
-			case 7: {;_p = 45;};
-			case 8: {;_p = 20;};
-			case 9: {;_p = 10;};
-			case 10: {;_p = 0;};
-			case 11: {;_p = -10;};
+			case 1: {_p = 90;};
+			case 2: {_p = 80;};
+			case 3: {_p = 70;};
+			case 4: {_p = 60;};
+			case 5: {_p = 50;};
+			case 6: {_p = 45;};
+			case 7: {_p = 45;};
+			case 8: {_p = 20;};
+			case 9: {_p = 10;};
+			case 10: {_p = 0;};
+			case 11: {_p = -10;};
 			default {_y = _dir;_p = -45;};
 		};
 		_q setVectorDirAndUp [
@@ -179,7 +179,7 @@ vehicle player addEventHandler ["Fired", {
 
 
 //max rotation on turret
-[] spawn {
+spawn {
 	while{vehicle player != player}do{
 		sleep 0.1;
 		_turret = vehicle player;
@@ -215,14 +215,15 @@ player addAction ["Hold On", {
 
 	if(!isnil "_nearestVehicle")then{
 		player attachto [_nearestVehicle];
-		_index = (findDisplay 46) displayAddEventHandler ["KeyDown", "
-			hint str (_this select 1);
+		_index = (findDisplay 46) displayAddEventHandler [
+			"KeyDown", 
+			"hint str (_this select 1);
 			if((_this select 1) in [17,30,31,32,57])then{
 				detach player;
 				_index = missionnamespace getVariable 'jn_hold';
 				(findDisplay 46) displayRemoveEventHandler ['KeyDown',_index];
-			};
-		"];
+			};"
+		];
 		missionnamespace setVariable ["jn_hold",_index];
 	};
 
