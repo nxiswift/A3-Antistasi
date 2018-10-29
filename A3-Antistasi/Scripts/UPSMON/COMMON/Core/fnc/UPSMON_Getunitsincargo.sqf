@@ -18,9 +18,8 @@ _unitsincargo = [];
 _crew = crew _vehicle;
 
 {
-	If (alive _x) then
-	{
-	_unitsincargo pushback _x;
+	If (alive _x) then {
+		_unitsincargo pushback _x;
 	};
 } foreach _crew;
 
