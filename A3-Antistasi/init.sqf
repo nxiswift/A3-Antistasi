@@ -17,23 +17,24 @@ _pic = "addons\rw.paa";
     3090
 ] spawn bis_fnc_dynamicText;
 
-addMissionEventHandler ["Draw3D",
-{
-
-    _3d_distance    = 100;
-    _3d_icon_size   = 0.5;
-    _3d_icon_color  = [1,0,0,1];
-    _text  = "";
-    _allPlayers = [];
+addMissionEventHandler [
+    "Draw3D",
     {
-        _pos = ASLToAGL getPosASL _x;
-        if (((_x distance player) < _3d_distance) && _x getVariable "INCAPACITATED") then
+        _3d_distance    = 100;
+        _3d_icon_size   = 0.5;
+        _3d_icon_color  = [1,0,0,1];
+        _text  = "";
+        _allPlayers = [];
         {
-            drawIcon3D["\a3\ui_f\data\IGUI\Cfg\Actions\bandage_ca.paa",_3d_icon_color,[_pos # 0,_pos # 1,(_pos # 2) + 1],_3d_icon_size,_3d_icon_size,0,format[_text],1,0.04];
-        };
-        
-    } forEach playableUnits;
-}];
+            _pos = ASLToAGL getPosASL _x;
+            if (((_x distance player) < _3d_distance) && _x getVariable "INCAPACITATED") then
+            {
+                drawIcon3D["\a3\ui_f\data\IGUI\Cfg\Actions\bandage_ca.paa",_3d_icon_color,[_pos # 0,_pos # 1,(_pos # 2) + 1],_3d_icon_size,_3d_icon_size,0,format[_text],1,0.04];
+            };
+            
+        } forEach playableUnits;
+    }
+];
 
 [] execVM "addons\zlt_pushboat.sqf";   //толкание лодок
 [] execVM "addons\outlw_magRepack\MagRepack_init.sqf";    // перепаковка
