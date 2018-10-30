@@ -1,6 +1,6 @@
 //if (!isServer) exitWith{};
 
-if (player != leader group player) exitWith {hint "You cannot dismiss anyone if you are not the squad leader"};
+if (player != leader player) exitWith {hint "You cannot dismiss anyone if you are not the squad leader"};
 
 private ["_units","_hr","_resourcesFIA","_unit","_nuevogrp"];
 
@@ -12,7 +12,7 @@ if (_units findIf {!([_x] call A3A_fnc_canFight)} != -1) exitWith {hint "You can
 player globalChat "Get out of my sight you useless scum!";
 
 _nuevoGrp = createGroup buenos;
-//if ({isPlayer _x} count units group player == 1) then {_ai = true; _nuevogrp = createGroup buenos};
+//if ({isPlayer _x} count units player == 1) then {_ai = true; _nuevogrp = createGroup buenos};
 
 {
 if (typeOf _x != SDKUnarmed) then

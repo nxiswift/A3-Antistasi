@@ -19,7 +19,7 @@ if (_x != vehicle _x) then
 	{
 	[_x] orderGetIn true;
 	};
-} forEach units group player;
+} forEach units player;
 
 hcShowBar false;
 hcShowBar true;
@@ -31,7 +31,7 @@ _eh1 = player addEventHandler ["HandleDamage",
 	_unit removeEventHandler ["HandleDamage",_thisEventHandler];
 	//removeAllActions _unit;
 	selectPlayer _unit;
-	(units group player) joinsilent group player;
+	(units player) joinsilent player;
 	group player selectLeader player;
 	hint "Returned to original Unit as it received damage";
 	}];
@@ -41,7 +41,7 @@ _eh2 = _unit addEventHandler ["HandleDamage",
 	_unit removeEventHandler ["HandleDamage",_thisEventHandler];
 	removeAllActions _unit;
 	selectPlayer (_unit getVariable "owner");
-	(units group player) joinsilent group player;
+	(units player) joinsilent group player;
 	group player selectLeader player;
 	hint "Returned to original Unit as controlled AI received damage";
 	}];

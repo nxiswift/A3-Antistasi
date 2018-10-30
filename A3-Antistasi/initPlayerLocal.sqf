@@ -386,7 +386,7 @@ player addEventHandler ["GetInMan",
 				{
 				if (_owner isEqualType "") then
 					{
-					if ({getPlayerUID _x == _owner} count (units group player) == 0) then
+					if ({getPlayerUID _x == _owner} count (units player) == 0) then
 						{
 						hint "You cannot board other player vehicle if you are not in the same group";
 						moveOut _unit;

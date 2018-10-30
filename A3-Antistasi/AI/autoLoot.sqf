@@ -1,7 +1,7 @@
 _unit = _this select 0;
 _camion = _this select 1;
 
-if ((isPlayer _unit) or (player != leader group player)) exitWith {};
+if ((isPlayer _unit) or (player != leader player)) exitWith {};
 if !([_unit] call A3A_fnc_canFight) exitWith {};
 //_ayudando = _unit getVariable "ayudando";
 if (_unit getVariable ["ayudando",false]) exitWith {_unit groupChat "I cannot rearm right now. I'm healing a comrade"};

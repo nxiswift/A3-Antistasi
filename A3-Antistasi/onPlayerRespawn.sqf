@@ -66,7 +66,7 @@ if (side group player == buenos) then
 	removeVest _nuevo;
 	if ((not("ItemGPS" in unlockedItems)) and ("ItemGPS" in (assignedItems _nuevo))) then {_nuevo unlinkItem "ItemGPS"};
 	if ((!hayTFAR) and (!hayACRE) and ("ItemRadio" in (assignedItems player)) and (!haveRadio)) then {player unlinkItem "ItemRadio"};
-	if (!isPlayer (leader group player)) then {(group player) selectLeader player};
+	if (!isPlayer (leader player)) then {(group player) selectLeader player};
 	player addEventHandler ["FIRED",
 		{
 		_player = _this select 0;

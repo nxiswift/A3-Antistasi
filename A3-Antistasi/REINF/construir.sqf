@@ -2,7 +2,7 @@ if (player != player getVariable ["owner",objNull]) exitWith {hint "You cannot c
 
 private _ingeniero = objNull;
 
-{if (_x getUnitTrait "engineer") exitWith {_ingeniero = _x}} forEach units group player;
+{if (_x getUnitTrait "engineer") exitWith {_ingeniero = _x}} forEach units player;
 
 if (isNull _ingeniero) exitWith {hint "Your squad needs an engineer to be able to construct"};
 if ((player != _ingeniero) and (isPlayer _ingeniero)) exitWith {hint "There is a human player engineer in your squad, ask him to construct whatever you need"};

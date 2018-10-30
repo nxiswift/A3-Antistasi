@@ -36,7 +36,7 @@ if (!isDedicated) then
 						};
 					};
 				};
-			} forEach units group player;
+			} forEach units player;
 			["dinero",_resfondo] call fn_SaveStat;
 			};
 		savingClient = false;

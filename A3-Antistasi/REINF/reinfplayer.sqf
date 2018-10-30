@@ -9,7 +9,7 @@ if (player != player getVariable ["owner",player]) exitWith {hint "You cannot bu
 
 if ([player,300] call A3A_fnc_enemyNearCheck) exitWith {Hint "You cannot Recruit Units with enemies nearby"};
 
-if (player != leader group player) exitWith {hint "You cannot recruit units as you are not your group leader"};
+if (player != leader player) exitWith {hint "You cannot recruit units as you are not your group leader"};
 
 _hr = server getVariable "hr";
 
@@ -22,7 +22,7 @@ if (!isMultiPlayer) then {_resourcesFIA = server getVariable "resourcesFIA"} els
 if (_coste > _resourcesFIA) exitWith {hint format ["You do not have enough money for this kind of unit (%1 € needed)",_coste]};
 
 
-if ((count units group player) + (count units rezagados) > 9) exitWith {hint "Your squad is full or you have too many scattered units with no radio contact"};
+if ((count units player) + (count units rezagados) > 9) exitWith {hint "Your squad is full or you have too many scattered units with no radio contact"};
 if (random 20 <= skillFIA) then {_tipoUnidad = _arrayTipoUnidad select 1};
 _unit = group player createUnit [_tipounidad, position player, [], 0, "NONE"];
 
