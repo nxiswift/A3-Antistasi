@@ -1,4 +1,3 @@
-
 class JN {
 	class JNA {
 		file = "JeroenArsenal\JNA";
