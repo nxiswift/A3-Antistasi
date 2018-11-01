@@ -1,0 +1,17 @@
+{
+    "sqflint.exclude": [
+        "A3-Antistasi/Templates/A3-AA-BLUFORTemplate.Altis/**/*",
+        "A3-Antistasi/Templates/A3-AATemplate.Altis/**/*",
+        "A3-Antistasi/Templates/A3-ArmiaKrajowaTemplate.chernarus_summer/**/*",
+        "A3-Antistasi/Templates/A3-WotPTemplate.Tanoa/**/*"
+    ],
+    "sqflint.checkPaths": true,
+    "sqflint.descriptionFiles": [
+        "A3-Antistasi/defines.hpp",
+        "A3-Antistasi/dialogs.hpp",
+        "A3-Antistasi/functions.hpp",
+        "A3-Antistasi/JeroenArsenal/functions.hpp"
+    ],
+    "editor.fontLigatures": true,
+    "editor.fontFamily": "Fira Code"
+}
