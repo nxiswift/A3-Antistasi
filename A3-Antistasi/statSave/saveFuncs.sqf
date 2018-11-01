@@ -204,9 +204,9 @@ fn_SetStat =
 			for "_i" from 0 to (count _varvalue - 1) do
 			    {
 			    _posAnt = _varvalue select _i;
-			    _mrk = [mrkAntenas, _posAnt] call BIS_fnc_nearestPosition;
+			    _mrk = [mrkAntenas,_posAnt] call BIS_fnc_nearestPosition;
 			    _antena = [antenas,_mrk] call BIS_fnc_nearestPosition;
-			    {if ([antenas,_x] call BIS_fnc_nearestPosition == _antena) then {[_x,false] spawn A3A_fnc_apagon}} forEach ciudades;
+			    {if (([antenas,_x] call BIS_fnc_nearestPosition) == _antena) then {[_x,false] spawn A3A_fnc_apagon}} forEach ciudades;
 			    antenas = antenas - [_antena];
 			    _antena removeAllEventHandlers "Killed";
 			    _antena setDamage [1,false];

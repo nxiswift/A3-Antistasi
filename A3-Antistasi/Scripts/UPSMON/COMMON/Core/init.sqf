@@ -41,3 +41,4 @@ UPSMON_deleteDead = compile preProcessFileLineNumbers "Scripts\UPSMON\COMMON\Cor
 UPSMON_Nowp = compile preProcessFileLineNumbers "Scripts\UPSMON\COMMON\Core\fnc\UPSMON_Nowp.sqf";
 
 UPSMON_AddtoArray = compile preProcessFileLineNumbers "Scripts\UPSMON\COMMON\Core\fnc\UPSMON_AddtoArray.sqf";
+UPSMON_SN_EHKILLEDCIV = compile preProcessFileLineNumbers "Scripts\UPSMON\COMMON\Core\fnc\UPSMON_SN_EHKILLEDCIV.sqf";

@@ -46,6 +46,6 @@ if (isPlayer _killer) then
 	if (UPSMON_Debug > 0) then {player globalchat format["KILLED_CIV_COUNTER: %1",KILLED_CIV_COUNTER]};
 	if (R_WHO_IS_CIV_KILLER_INFO > 0) then 
 	{      
-		call compile format ["[{UPSMON_Logic_civkill globalChat ""A CIVILIAN WAS KILLED BY %1"";},""BIS_fnc_spawn""] call BIS_fnc_MP;",name _killer];
+		call compile format ["{UPSMON_Logic_civkill globalChat ""A CIVILIAN WAS KILLED BY %1"";} remoteExec [""BIS_fnc_spawn""];",name _killer];
 	};	
 };

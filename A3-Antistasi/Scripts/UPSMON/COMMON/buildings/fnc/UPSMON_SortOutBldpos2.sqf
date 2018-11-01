@@ -27,7 +27,7 @@ _allpos = [];
 
 If (count _allpos > 1) then
 {
-	_allpos = _roofpos call UPSMON_arrayShufflePlus;
+	_allpos = _allpos call UPSMON_arrayShufflePlus;
 };
 
 _allpos;

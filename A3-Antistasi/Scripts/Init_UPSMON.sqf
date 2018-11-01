@@ -144,6 +144,7 @@ UPSMON_Markers = [];
 UPSMON_TEMPLATES = [];
 //EH Killed Civ
 KILLED_CIV_COUNTER = [];
+R_WHO_IS_CIV_KILLER_INFO = 1;
 
 UPSMON_FlareInTheAir = false;
 

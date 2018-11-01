@@ -40,7 +40,7 @@ If (!IsNull _npc) then
 					_dirpos = [getposATL _npc,_dir2, 200] call UPSMON_GetPos2D;
 					[_npc,_dirpos] call UPSMON_dowatch;
 					sleep 0.7;
-					_unit setDir _dir2;
+					_npc setDir _dir2;
 					If (!alive _npc) exitwith {};
 					_npc disableAI "anim";
 					_npc dowatch objnull;

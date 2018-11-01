@@ -31,13 +31,13 @@ if ( _npc != _vehicle || !(_npc iskindof "Man" )) then
 		//Si acaba de entrar en el heli se define punto de aterrizaje
 		if (_npc == driver _vehicle ) then 
 		{ 
-			[_vehicle,getpos _vehicle] call UPSMON_MoveHeliback;							
+			[_vehicle,getpos _vehicle] call UPSMON_Returnbase;							
 		};				
 	} else {			
-		[_transport,[_npc]] call UPSMON_UnitsGetOut;		
+		[_vehicle,[_npc]] call UPSMON_UnitsGetOut;		
 	};	
 		
-	//Esperamos a que esté parado		
+	//Esperamos a que estï¿½ parado		
 	waituntil {_npc == vehicle _npc || !alive _npc};
 };	
 	

@@ -20,28 +20,26 @@ _fechalimnum = dateToNumber _fechalim;
 _ang = random 360;
 _cuenta = 0;
 _dist = if (_dificil) then {2000} else {3000};
-while {true} do
-	{
+
+while {true} do {
 	_poscrashOrig = _posicion getPos [_dist,_ang];
-	if ((!surfaceIsWater _poscrash) and (_poscrash distance _posHQ < 4000)) exitWith {};
+	if ((!surfaceIsWater _poscrashOrig) and (_poscrashOrig distance _posHQ < 4000)) exitWith {};
 	_ang = _ang + 1;
 	_cuenta = _cuenta + 1;
-	if (_cuenta > 360) then
-		{
+	if (_cuenta > 360) then {
 		_cuenta = 0;
 		_dist = _dist - 500;
-		};
 	};
+};
 
 _tipoVeh = selectRandom (vehPlanes + vehAttackHelis + vehTransportAir);
 
-_posCrashMrk = [_poscrash,random 500,random 360] call BIS_fnc_relPos;
+_posCrashMrk = [_poscrashOrig,random 500,random 360] call BIS_fnc_relPos;
 _posCrash = _posCrashOrig findEmptyPosition [0,100,_tipoVeh];
-if (count _posCrash == 0) then
-	{
+if (count _posCrash == 0) then {
 	if (!isMultiplayer) then {{ _x hideObject true } foreach (nearestTerrainObjects [_posCrashOrig,["tree","bush"],50])} else {{[_x,true] remoteExec ["hideObjectGlobal",2]} foreach (nearestTerrainObjects [_posCrashOrig,["tree","bush"],50])};
 	_posCrash = _posCrashOrig;
-	};
+};
 _mrkfin = createMarker [format ["DES%1", random 100], _posCrashMrk];
 _mrkfin setMarkerShape "ICON";
 //_mrkfin setMarkerType "hd_destroy";
@@ -76,12 +74,11 @@ _vehiculos = _vehiculos + [_heli,_efecto];
 
 _tam = 100;
 
-while {true} do
-	{
+while {true} do {
 	_roads = _posicion nearRoads _tam;
 	if (count _roads > 0) exitWith {};
 	_tam = _tam + 50;
-	};
+};
 
 _road = _roads select 0;
 _tipoVeh = if (_lado == malos) then {selectRandom vehNATOLightUnarmed} else {selectRandom vehCSATLightUnarmed};

@@ -32,7 +32,7 @@ _underwatermines = [];
 		if (_underwatermine) then {_array=_underwatermines;};
 		_array set [count _array,tolower configname _x];
 	};
-} foreach ((configfile >> "CfgMineTriggers") call bis_fnc_returnchildren);
+} foreach ((configfile >> "CfgMineTriggers") call BIS_fnc_returnChildren);
 
 {
 	_cfgvehicle = _x;
@@ -46,7 +46,7 @@ _underwatermines = [];
 		if (_trigger in _APMines) then {_minetype2 set [count _minetype2,_vehicle];}; 
 		if (_trigger in _underwatermines) then {_minetype3 set [count _minetype3,_vehicle];}; 
 	};	
-} foreach ((configfile >> "CfgVehicles") call bis_fnc_returnchildren);
+} foreach ((configfile >> "CfgVehicles") call BIS_fnc_returnChildren);
 
 _minesclassname = [_minetype1,_minetype2,_minetype3];
 _minesclassname

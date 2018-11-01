@@ -75,7 +75,7 @@ if (_lado == muyMalos) then
 			_aeropuertos = aeropuertos select {(lados getVariable [_x,sideUnknown] == muyMalos) and ([_x,true] call A3A_fnc_airportCanAttack)};
 			if (count _aeropuertos > 0) then
 				{
-				_aeropuerto = [_aeropuertos, position casa] call BIS_fnc_nearestPosition;
+				_aeropuerto = [_aeropuertos, position _casa] call BIS_fnc_nearestPosition;
 				[[getPosASL _casa,_aeropuerto,"",false],"A3A_fnc_patrolCA"] remoteExec ["A3A_fnc_scheduler",2];
 				};
 			};

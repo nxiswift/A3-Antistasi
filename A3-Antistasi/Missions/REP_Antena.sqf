@@ -63,7 +63,6 @@ if (dateToNumber date > _fechalimnum) then
 	else
 		{
 		["REP",[format ["%4 is rebuilding a radio tower in %1. If we want to keep up the enemy comms breakdown, the work must be stopped. Destroy the repair truck parked nearby or capture the zone. Work will be finished on %2:%3.",_nombredest,numberToDate [2035,_fechalimnum] select 3,numberToDate [2035,_fechalimnum] select 4,nameMalos],"Tower Rebuild Disrupt",_marcador],_posicion,"FAILED","Destroy"] call A3A_fnc_taskUpdate;
-		//[5,0,_posicion] remoteExec ["A3A_fnc_citySupportChange",2];
 		[-600] remoteExec ["A3A_fnc_timingCA",2];
 		[-10,theBoss] call A3A_fnc_playerScoreAdd;
 		};
@@ -72,7 +71,7 @@ if (dateToNumber date > _fechalimnum) then
 	if (isMultiplayer) then {[_antena,true] remoteExec ["hideObjectGlobal",2]} else {_antena hideObject true};
 	_antena = createVehicle ["Land_Communication_F", _posicion, [], 0, "NONE"];
 	antenas pushBack _antena; publicVariable "antenas";
-	{if ([antenas,_x] call BIS_fnc_nearestPosition == _antena) then {[_x,true] spawn A3A_fnc_apagon}} forEach ciudades;
+	{if (([antenas,_x] call BIS_fnc_nearestPosition) == _antena) then {[_x,true] spawn A3A_fnc_apagon}} forEach ciudades;
 	_mrkfin = createMarker [format ["Ant%1", count antenas], _posicion];
 	_mrkfin setMarkerShape "ICON";
 	_mrkfin setMarkerType "loc_Transmitter";
@@ -83,7 +82,7 @@ if (dateToNumber date > _fechalimnum) then
 	_antena addEventHandler ["Killed",
 		{
 		_antena = _this select 0;
-		{if ([antenas,_x] call BIS_fnc_nearestPosition == _antena) then {[_x,false] spawn A3A_fnc_apagon}} forEach ciudades;
+		{if (([antenas,_x] call BIS_fnc_nearestPosition) == _antena) then {[_x,false] spawn A3A_fnc_apagon}} forEach ciudades;
 		_mrk = [mrkAntenas, _antena] call BIS_fnc_nearestPosition;
 		antenas = antenas - [_antena]; antenasmuertas = antenasmuertas + [getPos _antena]; deleteMarker _mrk;
 		["TaskSucceeded",["", "Radio Tower Destroyed"]] remoteExec ["BIS_fnc_showNotification",buenos];

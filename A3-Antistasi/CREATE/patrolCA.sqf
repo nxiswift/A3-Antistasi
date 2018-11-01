@@ -92,40 +92,31 @@ if ((!_esMarcador) and (_typeOfAttack != "Air") and (!_super) and ({lados getVar
 	};
 if (_exit) exitWith {};
 _threatEvalLand = 0;
-if (!_inWaves) then
-	{
+if (!_inWaves) then {
 	_threatEvalLand = [_posDestino,_lado] call A3A_fnc_landThreatEval;
 	_aeropuertos = aeropuertos select {(lados getVariable [_x,sideUnknown] == _lado) and ([_x,true] call A3A_fnc_airportCanAttack) and (getMarkerPos _x distance2D _posDestino < distanceForAirAttack)};
-	if (hayIFA and (_threatEvalLand <= 15)) then {_aeropuertos = _aeropuertos select {(getMarkerPos _x distance2D _posDestino < distanceForLandAttack)}};//todo пиздец!
+	if (hayIFA and (_threatEvalLand <= 15)) then {_aeropuertos = _aeropuertos select {(getMarkerPos _x distance2D _posDestino < distanceForLandAttack)}};
 	_puestos = if (_threatEvalLand <= 15) then {puestos select {(lados getVariable [_x,sideUnknown] == _lado) and ([_posDestino,getMarkerPos _x] call A3A_fnc_isTheSameIsland) and (getMarkerPos _x distance _posDestino < distanceForLandAttack)  and ([_x,true] call A3A_fnc_airportCanAttack)}} else {[]};
 	_aeropuertos = _aeropuertos + _puestos;
-	if (_esMarcador) then
-		{
-		if (_marcador in blackListDest) then
-			{
+	if (_esMarcador) then {
+		if (_marcador in blackListDest) then {
 			_aeropuertos = _aeropuertos - puestos;
-			};
+		};
 		_aeropuertos = _aeropuertos - [_marcador];
 		_aeropuertos = _aeropuertos select {({_x == _marcador} count (killZones getVariable [_x,[]])) < 3};
-		}
-	else
-		{
-		if (!_super) then
-			{
+	} else {
+		if (!_super) then {
 			_sitio = [(recursos + fabricas + aeropuertos + puestos + puertos),_posDestino] call BIS_fnc_nearestPosition;
 			_aeropuertos = _aeropuertos select {({_x == _sitio} count (killZones getVariable [_x,[]])) < 3};
-			};
-		};
-	if (_aeropuertos isEqualTo []) then
-		{
-		_exit = true;
-		}
-	else
-		{
-		_aeropuerto = [_aeropuertos,_posDestino] call BIS_fnc_nearestPosition;
-		_posOrigen = getMarkerPos _aeropuerto;
 		};
 	};
+	if (_aeropuertos isEqualTo []) then {
+		_exit = true;
+	} else {
+		_aeropuerto = [_aeropuertos,_posDestino] call BIS_fnc_nearestPosition;
+		_posOrigen = getMarkerPos _aeropuerto;
+	};
+};
 
 if (_exit) exitWith {diag_log format ["Antistasi PatrolCA: CA cancelled because no available base (distance, not spawned, busy, killzone) to attack %1",_marcador]};
 
