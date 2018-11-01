@@ -445,28 +445,3 @@ if!(_reportMissing isEqualTo "")then{
 if!(_reportTotal isEqualTo "")then{
 	titleText[_reportTotal, "PLAIN"];
 };
-
-
-/*
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-[
-	"13",
-	[
-		["U_BG_Guerilla2_3",["30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green"]],
-		["",[]],
-		["B_Carryall_oli",["30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green"]],
-		"H_Beret_blk",
-		"G_Bandanna_blk",
-		"Binocular",
-		["arifle_TRG21_F",["","","",""],""],
-		["launch_I_Titan_F",["","","",""],"Titan_AA"],
-		["",["","","",""],""],
-		["ItemMap","ItemCompass","ItemWatch","ItemRadio","ItemGPS","NVGoggles"],
-		["GreekHead_A3_01","Male01GRE",""]
-	]
-]
-*/
-
-
-
-
