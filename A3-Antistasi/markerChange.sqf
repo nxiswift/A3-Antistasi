@@ -212,7 +212,7 @@ if ((_winner != buenos) and (_looser != buenos)) then
 		if (_marcador in aeropuertos) then
 			{
 			_cercanos = (puertos + puestos) select {((getMarkerPos _x) distance _posicion < distanciaSPWN) and (lados getVariable [_x,sideUnknown] != buenos)};
-			_cercanos append ((fabricas + recursos) select {(lados getVariable [_x,sideUnknown] != buenos) and (lados getVariable [_x,sideUnknown] != _winner) and ([aeropuertos,_x] call BIS_fnc_nearestPosition == _marcador)});
+			_cercanos append ((fabricas + recursos) select {(lados getVariable [_x,sideUnknown] != buenos) and (lados getVariable [_x,sideUnknown] != _winner) and ({[aeropuertos,_x] call BIS_fnc_nearestPosition} == _marcador)});
 			if (_looser == malos) then  {_cercanos = _cercanos select {lados getVariable [_x,sideUnknown] == malos}} else {_cercanos = _cercanos select {lados getVariable [_x,sideUnknown] == muyMalos}};
 			{[_winner,_x] spawn A3A_fnc_markerChange; sleep 5} forEach _cercanos;
 			};

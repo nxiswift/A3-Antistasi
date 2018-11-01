@@ -224,7 +224,7 @@ else
             _x addEventHandler ["Killed",
                 {
                 _antena = _this select 0;
-                {if ([antenas,_x] call BIS_fnc_nearestPosition == _antena) then {[_x,false] spawn A3A_fnc_apagon}} forEach ciudades;
+                {if ({[antenas,_x] call BIS_fnc_nearestPosition} == _antena) then {[_x,false] spawn A3A_fnc_apagon}} forEach ciudades;
                 _mrk = [mrkAntenas, _antena] call BIS_fnc_nearestPosition;
                 antenas = antenas - [_antena]; antenasmuertas pushBack (getPos _antena); deleteMarker _mrk;
                 publicVariable "antenas"; publicVariable "antenasMuertas";
@@ -261,7 +261,7 @@ if (count _posAntenas > 0) then
                 _antena addEventHandler ["Killed",
                     {
                     _antena = _this select 0;
-                    {if ([antenas,_x] call BIS_fnc_nearestPosition == _antena) then {[_x,false] spawn A3A_fnc_apagon}} forEach ciudades;
+                    {if ({[antenas,_x] call BIS_fnc_nearestPosition} == _antena) then {[_x,false] spawn A3A_fnc_apagon}} forEach ciudades;
                     _mrk = [mrkAntenas, _antena] call BIS_fnc_nearestPosition;
                     antenas = antenas - [_antena]; antenasmuertas pushBack (getPos _antena); deleteMarker _mrk;
                     publicVariable "antenas"; publicVariable "antenasMuertas";
@@ -297,7 +297,9 @@ pospepe = [];
 {pospepe = pospepe + getPos _x} forEach pepe;
 copytoclipboard str pospepe;
 */
-if (isMultiplayer) then {[[petros,"hint","Zones Init Completed"],"A3A_fnc_commsMP"] call BIS_fnc_MP};
+if (isMultiplayer) then {
+    [petros,"hint","Zones Init Completed"] remoteExec ["A3A_fnc_commsMP"];
+};
 publicVariable "marcadores";
 publicVariable "ciudades";
 publicVariable "aeropuertos";

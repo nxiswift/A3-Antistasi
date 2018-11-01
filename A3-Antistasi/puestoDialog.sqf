@@ -20,44 +20,47 @@ _posicionTel = posicionTel;
 _pos = [];
 
 if ((_tipo == "delete") and (count puestosFIA < 1)) exitWith {hint "No Posts or Roadblocks deployed to delete"};
-if ((_tipo == "delete") and ({(alive _x) and (!captive _x) and ((side _x == malos) or (side _x == muyMalos)) and (_x distance _posicionTel < 500)} count allUnits > 0)) exitWith {hint "You cannot delete a Post while enemies are near it"};
+
+if (
+		(_tipo == "delete") and 
+		({(alive _x) and 
+		(!captive _x) and 
+		((side _x == malos) or (side _x == muyMalos)) and 
+		(_x distance _posicionTel < 500)} count allUnits > 0)
+	) exitWith {
+	hint "You cannot delete a Post while enemies are near it"
+};
 
 _coste = 0;
 _hr = 0;
 
-if (_tipo != "delete") then
-	{
+if (_tipo != "delete") then {
 	_escarretera = isOnRoad _posicionTel;
-
 	_tipogrupo = gruposSDKSniper;
 
-	if (_escarretera) then
-		{
+	if (_escarretera) then {
 		_tipogrupo = gruposSDKAT;
 		_coste = _coste + ([vehSDKLightArmed] call A3A_fnc_vehiclePrice) + (server getVariable staticCrewBuenos);
 		_hr = _hr + 1;
-		};
+	};
 
-	//_formato = (configfile >> "CfgGroups" >> "buenos" >> "Guerilla" >> "Infantry" >> _tipogrupo);
-	//_unidades = [_formato] call groupComposition;
 	{_coste = _coste + (server getVariable (_x select 0)); _hr = _hr +1} forEach _tipoGrupo;
-	}
-else
-	{
+} else {
 	_mrk = [puestosFIA,_posicionTel] call BIS_fnc_nearestPosition;
 	_pos = getMarkerPos _mrk;
+	
 	if (_posicionTel distance _pos >10) exitWith {hint "No post nearby"};
-	};
-//if ((_tipo == "delete") and (_posicionTel distance _pos >10)) exitWith {hint "No post nearby"};
+};
 
 _resourcesFIA = server getVariable "resourcesFIA";
 _hrFIA = server getVariable "hr";
 
-if (((_resourcesFIA < _coste) or (_hrFIA < _hr)) and (_tipo!= "delete")) exitWith {hint format ["You lack of resources to build this Outpost or Roadblock \n %1 HR and %2 € needed",_hr,_coste]};
+if (((_resourcesFIA < _coste) or (_hrFIA < _hr)) and (_tipo != "delete")) exitWith {
+	hint format ["You lack of resources to build this Outpost or Roadblock \n %1 HR and %2 € needed",_hr,_coste]
+};
 
-if (_tipo != "delete") then
-	{
+if (_tipo != "delete") then {
 	[-_hr,-_coste] remoteExec ["A3A_fnc_resourcesFIA",2];
-	};
+};
 
- [[_tipo,_posicionTel],"A3A_fnc_crearPuestosFIA"] call BIS_fnc_MP
+[_tipo,_posicionTel] remoteExecCall ["A3A_fnc_crearPuestosFIA"];

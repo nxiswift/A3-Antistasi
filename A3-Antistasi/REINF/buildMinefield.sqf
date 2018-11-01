@@ -48,6 +48,7 @@ for "_i" from 0 to (count _typeMagazines) - 1 do
 
 #include "\A3\Ui_f\hpp\defineResinclDesign.inc"
 
+_texto = "";
 _index = _tipoMuni call jn_fnc_arsenal_itemType;
 [_index,_tipoMuni,_cantidad] call jn_fnc_arsenal_removeItem;
 
