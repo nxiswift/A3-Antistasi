@@ -26,9 +26,9 @@ _loadActionID = _object addAction [
 		{
 			_distance = _x distance _cargo;
 
-			if(_distance < _nearestDistance && !(_x isEqualTo _cargo) && isnull (attachedTo _x)) then
+			if (_distance < _nearestDistance && !(_x isEqualTo _cargo) && isnull (attachedTo _x)) then
 			{
-				if(_x call jn_fnc_garage_getVehicleIndex != -1 && _x call jn_fnc_garage_getVehicleIndex != 5) then
+				if (_x call jn_fnc_garage_getVehicleIndex != -1 && _x call jn_fnc_garage_getVehicleIndex != 5) then
 				{
 					_nearestVehicle = _x;
 					_nearestDistance = _distance;

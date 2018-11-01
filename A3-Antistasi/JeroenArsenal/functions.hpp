@@ -19,6 +19,11 @@ class JN {
 
 	};
 
+	class JNG {
+		file = "JeroenArsenal\JNG";
+		class garage_getVehicleIndex {};
+	};
+
 	class JNL {
 		file = "JeroenArsenal\JNL";
 		class logistics_init {};

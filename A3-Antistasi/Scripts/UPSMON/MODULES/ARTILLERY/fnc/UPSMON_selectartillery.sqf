@@ -28,7 +28,7 @@ _artilleryunit = ObjNull;
 _artiarray = [_artillerysidegrps, [], { _npcpos vectorDistance (leader _x) }, "ASCEND"] call BIS_fnc_sortBy;
 {
 	_arti = _x;
-
+	_grp = group _x;
 	If (count units _x > 0) then
 	{
 		If (count (_grp getvariable ["UPSMON_Battery",[]]) > 0) then
@@ -77,6 +77,6 @@ _artiarray = [_artillerysidegrps, [], { _npcpos vectorDistance (leader _x) }, "A
 		};
 	};
 	
-	if (UPSMON_Debug>0) then {diag_log format ["Busy:%1 Distance:%2 RadioRange:%3 Rounds:%4",_artibusy,leader _x distance _npcpos,_RadioRange,_rounds];};
+	if (UPSMON_Debug>0) then {diag_log format ["Busy:%1 Distance:%2 RadioRange:%3 Rounds:%4",_grp,leader _x distance _npcpos,_RadioRange,_roundsask];};
 		
 } ForEach _artiarray;
