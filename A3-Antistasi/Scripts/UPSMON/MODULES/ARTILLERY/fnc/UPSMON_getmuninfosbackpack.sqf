@@ -16,6 +16,7 @@ private ["_askmission","_vehicle","_result","_backpack","_cfgArtillerymag","_rou
 
 _askmission = _this select 0;
 _vehicle = _this select 1;
+_grp = _this select 2;
 
 _cfgArtillerymag = getArray (configFile >> "cfgVehicles" >> _vehicle >> "Turrets" >> "MainTurret" >> "magazines");
 

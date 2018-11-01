@@ -34,3 +34,5 @@ UPSMON_DoRearm = compile preProcessFileLineNumbers "Scripts\UPSMON\COMMON\unit\f
 UPSMON_doGetOut = compile preProcessFileLineNumbers "Scripts\UPSMON\COMMON\unit\fnc\UPSMON_doGetOut.sqf";
 UPSMON_cancelstop = compile preProcessFileLineNumbers "Scripts\UPSMON\COMMON\unit\fnc\UPSMON_cancelstop.sqf";
 UPSMON_domove = compile preProcessFileLineNumbers "Scripts\UPSMON\COMMON\unit\fnc\UPSMON_domove.sqf";
+UPSMON_movetodriver = compile preProcessFileLineNumbers "Scripts\UPSMON\COMMON\unit\fnc\UPSMON_movetodriver.sqf";
+UPSMON_movetogunner = compile preProcessFileLineNumbers "Scripts\UPSMON\COMMON\unit\fnc\UPSMON_movetogunner.sqf";

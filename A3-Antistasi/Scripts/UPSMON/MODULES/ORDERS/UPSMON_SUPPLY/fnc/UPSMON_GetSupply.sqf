@@ -39,14 +39,15 @@ _supplygrp = ObjNull;
 						{
 							If (vehicle _x != _x) then
 							{
+								_vehicle = vehicle _x;
 								_support =  tolower gettext (configFile >> "CfgVehicles" >> typeof _vehicle >> "vehicleClass");
 								If (_support == "Support") then
 								{
 									If (!((vehicle _x) in _assignedvehicles)) then
 									{
-										_repair = getnumber (configFile >> "cfgVehicles" >> typeOf (_vehicle) >> "transportRepair");
-										_fuel = getnumber (configFile >> "cfgVehicles" >> typeOf (_vehicle) >> "transportFuel");
-										_munsupply = getnumber (configFile >> "cfgVehicles" >> typeOf (_vehicle) >> "attendant");
+										_repair = getnumber (configFile >> "cfgVehicles" >> typeOf _vehicle >> "transportRepair");
+										_fuel = getnumber (configFile >> "cfgVehicles" >> typeOf _vehicle >> "transportFuel");
+										_munsupply = getnumber (configFile >> "cfgVehicles" >> typeOf _vehicle >> "attendant");
 										
 										If ("repair" in _supplyneeded) then
 										{

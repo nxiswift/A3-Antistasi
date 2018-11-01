@@ -18,21 +18,6 @@ class JN {
 		class vehicleArsenal {};
 
 	};
-	class JNG {
-		file = "JeroenArsenal\JNG";
-		class garage {};
-		class garage_addVehicle {};
-		class garage_init {};
-		class garage_releaseVehicle {};
-		class garage_removeVehicle {};
-		class garage_requestOpen {};
-		class garage_requestClose {};
-		class garage_requestVehicle {};
-		class garage_getVehicleIndex {};
-		class garage_getVehicleData {};
-		class garage_garageVehicle {};
-		class garage_canGarageVehicle {};
-	};
 
 	class JNL {
 		file = "JeroenArsenal\JNL";

@@ -42,7 +42,7 @@ _supplyneeded = [];
 					
 				If ((vehicle _x) iskindof "AIR") then
 				{
-					_dist = (getposATL _x) vectordistance ((_grp getvariable ["UPSMON_Origin",[]]) select 0);
+					_dist = (getposATL _x) vectordistance ((group _assignedvehicle getvariable "UPSMON_Origin") select 0);
 					_fuelneeded = ((0.000537*_dist) / 100) + 0.0005;
 					_supplyneeded pushback "fuel";						
 				};
@@ -59,6 +59,6 @@ _supplyneeded = [];
 	};
 } foreach _assignedvehicle;
 
-_grp setvariable ["UPSMON_Supplyneeded",_supplyneeded];
+group _assignedvehicle setvariable ["UPSMON_Supplyneeded",_supplyneeded];
 
 _vehiclesneedsupply;

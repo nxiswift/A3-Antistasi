@@ -27,7 +27,7 @@ _grp setvariable ["UPSMON_ONRADIO",true];
 
 _UPSMON_Renf = (call (compile format ["UPSMON_REINFORCEMENT_%1_UNITS",side _grp])) - [_grp];
 
-if (UPSMON_Debug>0) then {diag_log format["%1 ask reinforcement position %2 KRON_Renf: %3",_npcpos,_fixedtargetpos,_UPSMON_Renf]};
+if (UPSMON_Debug>0) then {diag_log format["%1 ask reinforcement position %2 KRON_Renf: %3",_currpos,_targetpos,_UPSMON_Renf]};
 If (count _UPSMON_Renf > 0) then
 {
 	{

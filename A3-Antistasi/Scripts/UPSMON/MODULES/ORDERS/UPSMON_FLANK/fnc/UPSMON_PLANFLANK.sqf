@@ -22,6 +22,7 @@ _terrainscan = _this select 5;
 _areamarker = _this select 6;
 _haslos = _this select 7;
 _targetpos = _this select 8;
+_targetdist = _this select 9;
 
 _attackdist = 1000;
 _grp setvariable ["UPSMON_Grpmission","FLANK"];

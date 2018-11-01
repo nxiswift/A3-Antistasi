@@ -17,7 +17,7 @@ Returns:
 	nothing
 ****************************************************************/
 
-private ["_grp","_wpformation","_speedmode","_areamarker","_targetpos","_targetdist","_dist","_onroad","_Behaviour"]; 
+private ["_grp","_wpformation","_speedmode","_areamarker","_targetpos","_dist","_onroad","_Behaviour"]; 
 	
 _grp = _this select 0;
 _wpformation = _this select 1;

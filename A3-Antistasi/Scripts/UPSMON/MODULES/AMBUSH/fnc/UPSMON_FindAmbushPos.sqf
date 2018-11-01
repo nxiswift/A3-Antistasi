@@ -69,7 +69,7 @@ for "_i" from 1 to 50 do
 
 if (count _AmbushPositions > 0) then 
 {
-	_AmbushPositions = [_AmbushPositions] call UPSMON_ValueOrd;
+	_AmbushPositions = [_AmbushPositions, [], {_x select 3}, "DESCEND"] call BIS_fnc_sortBy;
 	_AmbushPosition = _AmbushPositions select 0;
 	_AmbushPosition = [_AmbushPosition select 0,_AmbushPosition select 1,0];
 };

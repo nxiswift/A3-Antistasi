@@ -20,7 +20,7 @@ Returns:
 	nothing
 ****************************************************************/
 
-private ["_grp","_npc","_attackPos","_dist","_gothit","_closeenough","_dir1","_dir2","_wptype","_wpformation","_result","_targetPos","_speedmode","_Behaviour","_grpid","_nofollow","_targetdist","_areamarker","_centerpos","_centerX","_centerY","_areadir","_areasize","_RangeX","_RangeY"];
+private ["_grp","_npc","_attackPos","_dist","_gothit","_closeenough","_dir1","_dir2","_wptype","_wpformation","_result","_targetPos","_speedmode","_Behaviour","_grpid","_nofollow","_areamarker","_centerpos","_centerX","_centerY","_areadir","_areasize","_RangeX","_RangeY"];
 	
 _grp = _this select 0;
 _attackPos = _this select 1;

@@ -21,9 +21,9 @@ If (!IsNull (_grp getvariable ["UPSMON_Transport",ObjNull])) then
 	_grptransport = _grp getvariable ["UPSMON_Transport",ObjNull];
 	If (_grptransport getvariable ["UPSMON_Grpmission",""] == "TRANSPORT") then
 	{
-		If (count (_grptransport getvariable ["UPSMON_Assignedvehicle",_assignedvehicles]) > 0) then
+		If (count (_grptransport getvariable "UPSMON_Assignedvehicle") > 0) then
 		{
-			_vehicles = _grptransport getvariable ["UPSMON_Assignedvehicle",_assignedvehicles];
+			_vehicles = _grptransport getvariable "UPSMON_Assignedvehicle";
 			If ({alive _x && vehicle _x != _x && canmove _x} count _vehicles > 0) then
 			{
 				_transportgrp = _grptransport;

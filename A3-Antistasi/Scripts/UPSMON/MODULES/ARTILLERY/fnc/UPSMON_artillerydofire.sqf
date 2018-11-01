@@ -37,13 +37,13 @@ If (count (_grp getvariable ["UPSMON_Mortarmun",[]]) > 0) then
 {	
 	If (typename ((_grp getvariable ["UPSMON_Battery",[]])select 0) == "ARRAY") then
 	{
-		_result = [_askmission,typeof (vehicle ((_batteryunits select 0) select 0))] call UPSMON_getmuninfosbackpack;
+		_result = [_askmission,typeof (vehicle ((_batteryunits select 0) select 0)),_grp] call UPSMON_getmuninfosbackpack;
 		_batteryunits = [];
 		_batteryunits pushback ((_batteryunits select 0) select 0);
 	}
 	else
 	{
-		_result = [_askmission,typeof (vehicle (_batteryunits select 0))] call UPSMON_getmuninfosbackpack;
+		_result = [_askmission,typeof (vehicle (_batteryunits select 0)),_grp] call UPSMON_getmuninfosbackpack;
 	};
 }
 else
