@@ -58,7 +58,7 @@ for "_grpcnt" from 1 to _copies do
 					
 		if (isMultiplayer) then 
 		{
-			[[netid _newunit, _initstr], "UPSMON_fnc_setVehicleInit", true, true] spawn BIS_fnc_MP;
+			[netid _newunit, _initstr] remoteExec ["UPSMON_fnc_setVehicleInit",0, true];
 		} 
 		else 
 		{
@@ -69,6 +69,7 @@ for "_grpcnt" from 1 to _copies do
 				
 		If (count _roletype > 0) then
 		{
+			_crews = crew vehicle _Ucthis;
 			_crews pushback [_newunit,_roletype];
 		};
 				
@@ -84,6 +85,5 @@ for "_grpcnt" from 1 to _copies do
 	
 	_Ucthis set [0,_lead];
 	nul= _Ucthis spawn UPSMON;
-	//sleep .05;
 };	
 sleep .05;

@@ -82,15 +82,15 @@ if (UPSMON_Debug>0) then {diag_log format["Spawning %3 copies of template %1 on 
 		{
 			_unittype = _x select 0;
 			_roletype = _x select 2;
-			_targetpos = _orgpos findEmptyPosition [5,50];
-			if (count _targetpos == 0) then {_targetpos = _orgpos};
+			_targetpos = _position findEmptyPosition [5,50];
+			if (count _targetpos == 0) then {_targetpos = _position};
 			_newunit = _grp createUnit [_unittype, _targetpos, [], 0, "FORM"];
 			_equipment = _x select 1;
 			[_newunit,_equipment] call UPSMON_addequipment;
 					
 			if (isMultiplayer) then 
 			{
-				[[netid _newunit, _initstr], "UPSMON_fnc_setVehicleInit", true, true] spawn BIS_fnc_MP;
+				[netid _newunit, _initstr] remoteExec ["UPSMON_fnc_setVehicleInit", 0, true];
 			} else 
 			{
 				_unitstr = "_newunit";
@@ -116,9 +116,9 @@ if (UPSMON_Debug>0) then {diag_log format["Spawning %3 copies of template %1 on 
 
 			{		
 				_vehicle = _x;
-				_targetpos = _orgpos findEmptyPosition [10, 200];
+				_targetpos = _position findEmptyPosition [10, 200];
 				sleep .4;
-				if (count _targetpos <= 0) then {_targetpos = _orgpos};
+				if (count _targetpos <= 0) then {_targetpos = _position};
 				//if (UPSMON_Debug>0) then {player globalchat format["%1 create vehicle _newpos %2 ",_x,_targetpos]};	
 				_newunit = (_x select 0) createvehicle (_targetpos);
 				_newunit setdir (_x select 1);
@@ -126,7 +126,7 @@ if (UPSMON_Debug>0) then {diag_log format["Spawning %3 copies of template %1 on 
 				{
 					_crew = _x select 1;
 					_role = (_x select 2) select 0;
-					_newunit = _grp createUnit [_crew, _orgpos, [], 0, "FORM"];
+					_newunit = _grp createUnit [_crew, _position, [], 0, "FORM"];
 					switch (_role) do 
 					{
 						case "Driver":

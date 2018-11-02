@@ -20,11 +20,13 @@ Returns:
 private ["_npcpos","_dir2","_targetPos","_flankdir","_side","_typeofgroup","_scan","_points","_dist","_flankAngle","_flankdist","_pool","_targetPosTemp","_terrainscan","_los_ok","_i","_final","_grp"];
 
 _npcpos = _this select 0;
-_dir2 = _this select 1;
+_dir = _this select 1;
 _targetPos = _this select 2;
 _side = _this select 3;
 _grpid = _this select 4;
 _dist = [_npcpos,_targetpos] call UPSMON_distancePosSqr; 
+_distmin = 100;
+_roadchk = 0;
 	
 _flankAngle = 45;
 //Establecemos una distancia de flanqueo	
@@ -39,7 +41,7 @@ _scan = true;
 while {_scan} do 
 {
 	_i = _i + 1;
-	_targetPosTemp = [_npcpos,[_dist,_flankdist],[_dir2 +100,_dir2+200],0,_roadchk,_distmin] call UPSMON_pos;
+	_targetPosTemp = [_npcpos,[_dist,_flankdist],[_dir +100,_dir+200],0,_roadchk,_distmin] call UPSMON_pos;
 	If (surfaceIsWater _targetPosTemp) then
 	{
 		_targetPosTemp = [_targetPosTemp select 0,_targetPosTemp select 1,0];

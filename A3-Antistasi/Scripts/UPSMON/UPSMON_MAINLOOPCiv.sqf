@@ -32,7 +32,7 @@ while {true} do
 		
 			// did the leader die?
 			_npc = [_npc,_grp] call UPSMON_getleader;							
-			if (!alive _npc || isplayer _npc) exitwith {[_grp,_UCthis] call UPSMON_Respawngrp;};			
+			if (!alive _npc || isplayer _npc) exitwith {[_grp,_UCthis] call UPSMON_RESPAWN;};			
 		
 			_buildingdist = 50;
 			_deadbodiesnear = false;

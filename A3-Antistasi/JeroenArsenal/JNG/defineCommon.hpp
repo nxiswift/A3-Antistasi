@@ -21,7 +21,7 @@
 #define IDC_JNG_TAB_REARM_SORT IDC_RSCDISPLAYARSENAL_TAB_ITEMOPTIC
 
 
-#define IDCS_LEFT\
+#define IDCS_LEFT \
 	IDC_JNG_TAB_CAR,\
 	IDC_JNG_TAB_ARMOR,\
 	IDC_JNG_TAB_HELI,\
@@ -29,7 +29,7 @@
 	IDC_JNG_TAB_NAVAL,\
 	IDC_JNG_TAB_STATIC
 
-#define IDCS_RIGHT\
+#define IDCS_RIGHT \
 	IDC_JNG_TAB_REARM,\
 	IDC_JNG_TAB_REPAIR,\
 	IDC_JNG_TAB_REFUEL,\
@@ -40,7 +40,7 @@
 
 #define IDCS	[IDCS_LEFT,IDCS_RIGHT]
 
-#define DECOMPILE_DATA\
+#define DECOMPILE_DATA \
 	private _data = call compile _dataStr;
 #define SPLIT_SAVE\
 	private _name = _data select 0;\
@@ -54,24 +54,24 @@
 	private _ammoPylon = _data select 8;\
 	private _damage = _data select 9;\
 	private _attachItem = _data select 10;
-#define COMPILE_SAVE\
+#define COMPILE_SAVE \
 	if(isnil "_name" || isnil "_beingChanged" || isnil "_locked" || isnil "_lockedName"  || isnil "_type" || isnil "_texture" || isnil "_animations" || isnil "_ammoClassic"|| isnil "_ammoPylon"|| isnil "_ammoClassic" || isnil "_damage")then{\
 		["Error: ERROR COMPILE_SAVE"] call BIS_fnc_error;\
 		_error_compile_save = "ERROR COMPILE_SAVE fn_garage.sqf (JGA)";\
 	};\
 	private _data = [_name, _beingChanged, _locked, _lockedName, _type, _texture, _animations, _ammoClassic, _ammoPylon, _damage, _attachItem];\
 	private _datastr = str _data;
-#define SPLIT_REARM\
+#define SPLIT_REARM \
 	private _magazine = _data select 0;\
 	private _currentAmount = _data select 1;\
 	private _maxAmount = _data select 2;\
 	private _displayName = _data select 3;
-#define COMPILE_REARM\
+#define COMPILE_REARM \
 	private _data = [_magazine, _currentAmount, _maxAmount, _displayName];\
 	private _datastr = str _data;
 
 
-#define AMOUTTOTEXT\
+#define AMOUTTOTEXT \
 {\
 	private _amount = _this;\
 	if(_amount == -1)exitWith{"   ∞    ";};\

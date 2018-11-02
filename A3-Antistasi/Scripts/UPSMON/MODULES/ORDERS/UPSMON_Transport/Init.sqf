@@ -14,4 +14,4 @@ UPSMON_DOfindvehicle = compile preProcessFileLineNumbers "Scripts\UPSMON\MODULES
 UPSMON_DOfindCombatvehicle = compile preProcessFileLineNumbers "Scripts\UPSMON\MODULES\ORDERS\UPSMON_Transport\fnc\UPSMON_DOfindCombatvehicle.sqf";
 UPSMON_getinassignedveh = compile preProcessFileLineNumbers "Scripts\UPSMON\MODULES\ORDERS\UPSMON_Transport\fnc\UPSMON_getinassignedveh.sqf";
 UPSMON_SrchTrpPos = compile preProcessFileLineNumbers "Scripts\UPSMON\MODULES\ORDERS\UPSMON_Transport\fnc\UPSMON_SrchTrpPos.sqf";
-
+UPSMON_HeliStuckcontrol = compile preProcessFileLineNumbers "Scripts\UPSMON\MODULES\ORDERS\UPSMON_Transport\fnc\UPSMON_HeliStuckcontrol.sqf";

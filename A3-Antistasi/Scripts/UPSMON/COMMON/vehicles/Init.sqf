@@ -15,3 +15,4 @@ UPSMON_fnc_commonTurrets = compile preProcessFileLineNumbers "Scripts\UPSMON\COM
 UPSMON_Emptyturret = compile preProcessFileLineNumbers "Scripts\UPSMON\COMMON\vehicles\fnc\UPSMON_Emptyturret.sqf";
 
 UPSMON_Checkvehiclesstatus = compile preProcessFileLineNumbers "Scripts\UPSMON\COMMON\vehicles\fnc\UPSMON_Checkvehiclesstatus.sqf";
+UPSMON_gunnercontrol = compile preProcessFileLineNumbers "Scripts\UPSMON\COMMON\vehicles\fnc\UPSMON_gunnercontrol.sqf";

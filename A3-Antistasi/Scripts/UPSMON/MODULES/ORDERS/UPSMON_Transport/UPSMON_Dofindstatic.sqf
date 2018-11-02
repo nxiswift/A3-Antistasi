@@ -17,7 +17,7 @@ _grpid = _this select 1;
 _buildingdist = _this select 2;
 	
 //If use statics are enabled leader searches for static weapons near.
-_unitsIn = [_grpid,_npc,_buildingdist] call UPSMON_GetIn_NearestStatic;			
+_unitsIn = [_npc,_grpid,_buildingdist] call UPSMON_GetNearestStatics;			
 				
 if ( count _unitsIn > 0) then 
 {									

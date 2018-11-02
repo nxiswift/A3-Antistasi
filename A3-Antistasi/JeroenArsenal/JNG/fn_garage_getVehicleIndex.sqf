@@ -1,4 +1,4 @@
-#include "defineCommon.inc"
+#include "defineCommon.hpp"
 
 params["_vehicle"];
 

@@ -391,7 +391,7 @@ _points = _points;
 {
 	If (!IsNull _x) then
 	{
-		If ((_renfgroup getvariable ["UPSMON_GrpToRenf",ObjNull]) == _grp) then
+		If ((_grp getvariable ["UPSMON_GrpToRenf",ObjNull]) == _grp) then
 		{
 			If (({alive _x && !(captive _x)} count units _x) > 0) then
 			{

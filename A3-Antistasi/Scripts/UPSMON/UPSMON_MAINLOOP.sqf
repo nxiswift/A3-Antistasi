@@ -122,7 +122,7 @@ while {true} do
 				//Analyse Targets && Allies
 				_Situation = [_grp,_Allies,_Enemies] call UPSMON_Checkratio;
 				_ratio = _Situation select 0;
-				_enicapacity = _Situation select 1;
+				_enemicapacity = _Situation select 1;
 				_typeofeni = _Situation select 2;
 
 				//Retreat
@@ -137,14 +137,15 @@ while {true} do
 				_artillery = [_grp] call UPSMON_ArtiChk;
 				If (_artillery) then
 				{
-					[_grp,_currpos,_attackpos,_dist,_enies] call UPSMON_FO;
+					[_grp,_currpos,_attackpos,_dist,_Enemies] call UPSMON_FO;
 				};
 
 				// Reinforcement Support
 				_reinf = [_grp,_ratio,_typeofgrp] call UPSMON_ReinfChk;
+				_radiorange = 3000;
 				If (_reinf) then
 				{
-					[_grp,_currpos,_attackpos,_radiorange,_enicapacity] spawn UPSMON_CallRenf;
+					[_grp,_currpos,_attackpos,_radiorange,_enemicapacity] spawn UPSMON_CallRenf;
 				};
 			};
 
@@ -288,7 +289,7 @@ while {true} do
 								_artillery = [_grp] call UPSMON_ArtiChk;
 								If (_artillery) then
 								{
-									[_grp,_currpos,_artipos,_dist,_enies,"ILLUM"] call UPSMON_FO;
+									[_grp,_currpos,_artipos,_dist,_Enemies,"ILLUM"] call UPSMON_FO;
 								}
 								else
 								{
@@ -634,6 +635,7 @@ while {true} do
 				If (_grp getvariable ["UPSMON_LINKED",0] > 0) then
 				{
 					{
+						_side = side _npc;
 						If (side _x == _side) then
 						{
 							If (round ([_currpos,getposATL (leader _x)] call UPSMON_distancePosSqr) <= (_grp getvariable ["UPSMON_LINKED",0])) then
@@ -771,6 +773,7 @@ while {true} do
 			case "WAITTRANSPORT":
 			{
 				_grouptransported = [_grp] call UPSMON_CheckTransported;
+				_formation = "Column";
 				If (IsNull _grouptransported) then
 				{
 					[_grp,_grp getvariable ["UPSMON_TransportDest",[]],"MOVE",_formation,_speedmode,_behaviour,"YELLOW",1] spawn UPSMON_DocreateWP;

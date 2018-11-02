@@ -15,11 +15,11 @@ Returns:
 
 private ["_mennear","_result","_pos","_radius"];
 
-_pos = _this select 0;
+_npc = _this select 0;
 _radius = _this select 1;
 _side = _this select 2;
 	
-_mennear = _pos nearentities [["CAManBase"],_radius];
+_mennear = _npc nearentities [["CAManBase"],_radius];
 _enemySides = _side call BIS_fnc_enemySides;
 _result = false;
 _allied = [];
